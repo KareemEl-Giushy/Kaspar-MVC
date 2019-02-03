@@ -1,0 +1,5 @@
+<ifmodule mod_rewrite.c>
+  rewriteengine on
+  rewriterule ^$ public/ [L]
+  rewriterule (.*) public/$1 [L]
+</ifmodule>
