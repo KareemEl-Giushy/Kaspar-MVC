@@ -1,7 +1,7 @@
 <?php
   /** APP CORE CLASS
     * Creates URLS & load core controller
-    * URL format - /controller/method/params
+    * URL format - /controller(name of the page)/method/params
   **/
   class Core {
     protected $currentController = 'Pages';
@@ -18,6 +18,8 @@
         $this->currentController = ucwords($url[0]);
         // unset index 0
         unset($url[0]);
+
+        // print_r($url);
       }
 
       // require the controller 'include it'
@@ -25,6 +27,17 @@
 
       // init the controller
       $this->currentController = new $this->currentController;
+
+      // check for second part of url
+      if ( isset( $url[1] ) ) {
+        // check to see if method exists in the conttroller
+        if (method_exists($this->currentController, $url[1])) {
+          $this->currentMethod = $url[1];
+          // Unset index 1
+          unset($url[1]);
+        }
+      }
+      // echo $this->currentMethod;
     }
 
     public function geturl() {
@@ -33,6 +46,7 @@
         $url = filter_var($url, FILTER_SANITIZE_URL);
         $url = explode('/', $url);
 
+        // print_r ($url);
         return $url;
       }
     }
