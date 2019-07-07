@@ -39,7 +39,7 @@
       }
 
       // echo $this->currentMethod;
-      // Get the Params
+      // Get the Params Check the Third Part
       $this->params = $url ? array_values($url) : [];
       // Callback the array 
       call_user_func_array([$this->currentController, $this->currentMethod], $this->params);
