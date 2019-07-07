@@ -1,8 +1,6 @@
-<IfModule mod_rewrite.c>
-  options -multiviews
-  rewriteengine on
-  rewritebase /kasparmvc/public
-  rewritecond %{REQUEST_FILENAME} !-d
-  rewritecond %{REQUEST_FILENAME} !-f
-  rewriterule ^(.+)$ index.php?url=$1 [QSA,L]
-</IfModule>
+options -multiviews
+rewriteengine on
+rewritebase /kasparmvc/public
+rewritecond %{REQUEST_FILENAME} !-d
+rewritecond %{REQUEST_FILENAME} !-f
+rewriterule ^(.+)$ index.php?url=$1 [QSA,L]

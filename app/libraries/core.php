@@ -37,7 +37,13 @@
           unset($url[1]);
         }
       }
+
       // echo $this->currentMethod;
+      // Get the Params
+      $this->params = $url ? array_values($url) : [];
+      // Callback the array 
+      call_user_func_array([$this->currentController, $this->currentMethod], $this->params);
+    
     }
 
     public function geturl() {
