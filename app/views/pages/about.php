@@ -1,1 +1,2 @@
-About
+<?php 
+    echo $data['title'];
