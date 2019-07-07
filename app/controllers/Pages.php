@@ -2,7 +2,7 @@
   class Pages extends Controller {
     
     public function __construct() {
-      $this->models('Post'); // new Post();
+      
     }
     public function index (){
       $data = ['title' => 'welcome'];
